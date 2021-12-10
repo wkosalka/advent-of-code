@@ -22,23 +22,22 @@ public abstract class DayResolution {
         this.secondResult = "";
     }
 
-    private String readInputAsString() throws IOException {
-
+    public String getInputAsString() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(this.filePath).getFile());
         return FileUtils.readFileToString(file, StandardCharsets.UTF_8);
     }
 
     public int[] getInputAsIntArray() throws IOException {
-        return Arrays.stream(readInputAsString().split(REGEXP_VAL)).mapToInt(Integer::parseInt).toArray();
+        return Arrays.stream(getInputAsString().split(REGEXP_VAL)).mapToInt(Integer::parseInt).toArray();
     }
 
     public String[] getInputAsStringArray() throws IOException {
-        return (String[]) Arrays.stream(readInputAsString().split(REGEXP_VAL)).toArray();
+        return (String[]) Arrays.stream(getInputAsString().split(REGEXP_VAL)).toArray();
     }
 
     public List<String> getInputAsStringList() throws IOException {
-        return Arrays.stream(readInputAsString().split(REGEXP_VAL)).collect(Collectors.toList());
+        return Arrays.stream(getInputAsString().split(REGEXP_VAL)).collect(Collectors.toList());
     }
 
     public void getFirstResponse() {
