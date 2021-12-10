@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 public class Aoc {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IOException {
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 4; i++) {
             DayResolution dayInstance = (DayResolution) Class.forName("com.wxk.adventofcode.Day" + i).getDeclaredConstructor().newInstance();
             dayInstance.makeCalculations();
             dayInstance.getFirstResponse();
