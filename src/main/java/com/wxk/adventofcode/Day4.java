@@ -9,8 +9,6 @@ public class Day4 extends DayResolution {
     public Day4() {
         super(4);
     }
-    public static final String WIN_DBL_EOL_DELIM = "\r\n\r\n";
-    public static final String WIN_EOL_DELIM = "\r\n";
 
     @Override
     public void makeCalculations() throws IOException {
