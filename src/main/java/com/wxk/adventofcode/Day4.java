@@ -66,107 +66,107 @@ public class Day4 extends DayResolution {
         for (int x = 0; x < boardLines.length; x++) {
             String[] sRow = boardLines[x].trim().replaceAll(" +", " ").split(" ");
             for (int i = 0; i < 5; i++) {
-                boardMap.put(new Key(x,i), Integer.parseInt(sRow[i]));
+                boardMap.put(new Key(x, i), Integer.parseInt(sRow[i]));
             }
         }
         return new SingleBoard(boardMap);
     }
 
-}
+    class SingleBoard {
+        private Map<Key, Integer> cells = new HashMap<>();
+        private boolean won;
 
+        public SingleBoard(Map<Key, Integer> rows) {
+            this.cells.putAll(rows);
+            won = false;
+        }
 
-class SingleBoard {
-    private Map<Key, Integer> cells = new HashMap<>();
-    private boolean won;
+        public boolean isWon() {
+            return won;
+        }
 
-    public SingleBoard(Map<Key, Integer> rows) {
-        this.cells.putAll(rows);
-        won = false;
-    }
+        public void setWon(boolean won) {
+            this.won = won;
+        }
 
-    public boolean isWon() {
-        return won;
-    }
-
-    public void setWon(boolean won) {
-        this.won = won;
-    }
-
-    public int getBoardSum() {
-        int res = 0;
-        for (Map.Entry<Key, Integer> entry : cells.entrySet()) {
-            if (entry.getValue() != -1) {
-                res += entry.getValue();
+        public int getBoardSum() {
+            int res = 0;
+            for (Map.Entry<Key, Integer> entry : cells.entrySet()) {
+                if (entry.getValue() != -1) {
+                    res += entry.getValue();
+                }
             }
+            return res;
         }
-        return res;
-    }
 
-    public boolean checkWin(int drawnNumber) {
-        for (Map.Entry<Key, Integer> entry : cells.entrySet()) {
-            if (entry.getValue() == drawnNumber) {
-                Key key = entry.getKey();
-                cells.put(key, -1);
-                boolean colsMarked = checkCols(key.getKey2());
-                boolean rowsMarked = checkRows(key.getKey1());
-                return colsMarked || rowsMarked;
+        public boolean checkWin(int drawnNumber) {
+            for (Map.Entry<Key, Integer> entry : cells.entrySet()) {
+                if (entry.getValue() == drawnNumber) {
+                    Key key = entry.getKey();
+                    cells.put(key, -1);
+                    boolean colsMarked = checkCols(key.getKey2());
+                    boolean rowsMarked = checkRows(key.getKey1());
+                    return colsMarked || rowsMarked;
+                }
             }
-        }
-        return false;
-    }
-
-    private boolean checkRows(int rowIdx) {
-        for (int i = 0; i < 5; i++) {
-            if (cells.get(new Key(rowIdx, i)) != -1) return false;
-        }
-        return true;
-    }
-
-    private boolean checkCols(int colIdx) {
-        for (int i = 0; i < 5; i++) {
-            if (cells.get(new Key(i, colIdx)) != -1) return false;
-        }
-        return true;
-    }
-}
-
-class Key
-{
-    private int key1;
-    private int key2;
-
-    public Key(int key1, int key2)
-    {
-        this.key1 = key1;
-        this.key2 = key2;
-    }
-
-    public int getKey1() {
-        return key1;
-    }
-
-    public int getKey2() {
-        return key2;
-    }
-
-    @Override
-    public boolean equals(Object o)
-    {
-        if (this == o) {
-            return true;
-        }
-
-        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        Key key = (Key) o;
-        return (key1 == key.key1) && (key2 == key.key2);
+        private boolean checkRows(int rowIdx) {
+            for (int i = 0; i < 5; i++) {
+                if (cells.get(new Key(rowIdx, i)) != -1) return false;
+            }
+            return true;
+        }
+
+        private boolean checkCols(int colIdx) {
+            for (int i = 0; i < 5; i++) {
+                if (cells.get(new Key(i, colIdx)) != -1) return false;
+            }
+            return true;
+        }
     }
 
-    @Override
-    public int hashCode()
+    static class Key
     {
-        return 31 * key1 + key2;
+        private final int key1;
+        private final int key2;
+
+        public Key(int key1, int key2)
+        {
+            this.key1 = key1;
+            this.key2 = key2;
+        }
+
+        public int getKey1() {
+            return key1;
+        }
+
+        public int getKey2() {
+            return key2;
+        }
+
+        @Override
+        public boolean equals(Object o)
+        {
+            if (this == o) {
+                return true;
+            }
+
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+
+            Key key = (Key) o;
+            return (key1 == key.key1) && (key2 == key.key2);
+        }
+
+        @Override
+        public int hashCode()
+        {
+            return 31 * key1 + key2;
+        }
     }
 }
+
+
