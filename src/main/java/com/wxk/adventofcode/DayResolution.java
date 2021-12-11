@@ -13,7 +13,8 @@ public abstract class DayResolution {
     private final String filePath;
     protected String firstResult;
     protected String secondResult;
-    private static final String REGEXP_VAL = "\\r?\\n";
+    public static final String WIN_DBL_EOL_DELIM = "\r\n\r\n";
+    public static final String WIN_EOL_DELIM = "\r\n";
 
     protected DayResolution(int day) {
         this.day = day;
@@ -29,15 +30,31 @@ public abstract class DayResolution {
     }
 
     public int[] getInputAsIntArray() throws IOException {
-        return Arrays.stream(getInputAsString().split(REGEXP_VAL)).mapToInt(Integer::parseInt).toArray();
+        return Arrays.stream(getInputAsString().split(WIN_EOL_DELIM)).mapToInt(Integer::parseInt).toArray();
+    }
+
+    public long[] getInputAsLongArray() throws IOException {
+        return Arrays.stream(getInputAsString().split(WIN_EOL_DELIM)).mapToLong(Long::parseLong).toArray();
+    }
+
+    public int[][] getInputAsIntIntArray() throws IOException {
+        String[] rowsArray = getInputAsStringArray();
+        if (rowsArray.length > 0) {
+            int[][] cellsArray = new int[rowsArray.length][rowsArray[0].length()];
+            for (int y = 0; y < rowsArray.length; y++) {
+                cellsArray[y] = Arrays.stream(rowsArray[y].split("")).mapToInt(Integer::parseInt).toArray();
+            }
+            return cellsArray;
+        }
+        return new int[0][0];
     }
 
     public String[] getInputAsStringArray() throws IOException {
-        return (String[]) Arrays.stream(getInputAsString().split(REGEXP_VAL)).toArray();
+        return Arrays.stream(getInputAsString().split(WIN_EOL_DELIM)).toArray(String[]::new);
     }
 
     public List<String> getInputAsStringList() throws IOException {
-        return Arrays.stream(getInputAsString().split(REGEXP_VAL)).collect(Collectors.toList());
+        return Arrays.stream(getInputAsString().split(WIN_EOL_DELIM)).collect(Collectors.toList());
     }
 
     public void getFirstResponse() {
