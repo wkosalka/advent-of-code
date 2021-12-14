@@ -32,13 +32,13 @@ public class Day14 extends DayResolution {
         for (int i = 0; i < 10; i++) {
             fillPolymer();
         }
-        firstResult = String.valueOf(countElements2());
+        firstResult = String.valueOf(countElements());
 
         initializeStructures();
         for (int i = 0; i < 40; i++) {
             fillPolymer();
         }
-        secondResult = String.valueOf(countElements2());
+        secondResult = String.valueOf(countElements());
     }
 
     private void initializeStructures() {
@@ -76,7 +76,7 @@ public class Day14 extends DayResolution {
         pairMap = newPairMap;
     }
 
-    private long countElements2() {
+    private long countElements() {
         Map<Character, Long> countMap = new HashMap<>();
         for (Map.Entry<String, Long> entry : pairMap.entrySet()) {
             char c1 = entry.getKey().charAt(0);
