@@ -1,7 +1,6 @@
 package com.wxk.adventofcode;
 
 import java.io.IOException;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
@@ -49,7 +48,7 @@ public class Day15 extends DayResolution {
                     next.add(p);
                 }
             }
-            next.sort(Comparator.comparingInt(p -> p.cost));
+            next.sort(null);
         }
         return -1;
     }
@@ -76,7 +75,7 @@ public class Day15 extends DayResolution {
                     next.add(p);
                 }
             }
-            next.sort(Comparator.comparingInt(p -> p.cost));
+            next.sort(null);
         }
         return -1;
     }
