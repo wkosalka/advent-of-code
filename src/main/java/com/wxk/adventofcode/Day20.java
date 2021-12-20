@@ -7,7 +7,7 @@ public class Day20 extends DayResolution {
 
     private final char[] algorithm = new char[512];
 
-    static final int[][] DIR = { {-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,0}, {0,1}, {1,-1}, {1,0}, {1,1} };
+
     private int maxX;
     private int maxY;
 
@@ -64,7 +64,7 @@ public class Day20 extends DayResolution {
         for (int y = 1; y < maxY-1; y++) {
             for (int x = 1; x < maxX-1; x++) {
                 StringBuilder stringBuilder = new StringBuilder();
-                for (int[] dir : DIR)  {
+                for (int[] dir : DIRx9)  {
                     if (image[y+dir[0]][x+dir[1]] == '#') {
                         stringBuilder.append('1');
                     } else {
