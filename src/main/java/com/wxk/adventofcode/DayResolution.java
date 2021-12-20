@@ -15,6 +15,9 @@ public abstract class DayResolution {
     protected String secondResult;
     public static final String WIN_DBL_EOL_DELIM = "\r\n\r\n";
     public static final String WIN_EOL_DELIM = "\r\n";
+    static final int[][] DIRx9 = { {-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,0}, {0,1}, {1,-1}, {1,0}, {1,1} };
+    static final int[][] DIRx8 = { {-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,1}, {1,-1}, {1,0}, {1,1} };
+    static final int[][] DIRx4 = { {0,1}, {1,0}, {0,-1}, {-1,0} };
 
     protected DayResolution(int day) {
         this.day = day;
