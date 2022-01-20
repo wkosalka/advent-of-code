@@ -72,7 +72,7 @@ public class Day5 extends DayResolution {
         }
     }
 
-    class Line {
+    static class Line {
         private final int x1;
         private final int x2;
         private final int y1;

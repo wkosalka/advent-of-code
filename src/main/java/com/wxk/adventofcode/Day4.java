@@ -72,8 +72,8 @@ public class Day4 extends DayResolution {
         return new SingleBoard(boardMap);
     }
 
-    class SingleBoard {
-        private Map<Key, Integer> cells = new HashMap<>();
+    static class SingleBoard {
+        private final Map<Key, Integer> cells = new HashMap<>();
         private boolean won;
 
         public SingleBoard(Map<Key, Integer> rows) {

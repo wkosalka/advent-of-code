@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Day6 extends DayResolution {
 
-    private Map<Integer, Long> fishMap = new HashMap<>();
+    private final Map<Integer, Long> fishMap = new HashMap<>();
 
     public Day6() {
         super(6);
@@ -27,17 +27,17 @@ public class Day6 extends DayResolution {
 
     private void initializeFishMap(String inputList) {
         for (int i = 0; i < 9; i++) {
-            fishMap.put(i, 0l);
+            fishMap.put(i, 0L);
         }
         String[] fishString = inputList.split(",");
-        for (int i = 0; i < fishString.length; i++) {
-            int currTimer = Integer.parseInt(fishString[i]);
+        for (String s : fishString) {
+            int currTimer = Integer.parseInt(s);
             fishMap.put(currTimer, fishMap.get(currTimer) + 1);
         }
     }
 
     private long iterateDays(int days) {
-        long res = 0l;
+        long res = 0L;
         for (int day = 1; day <= days; day++) {
             long newToCreate = fishMap.get(0);
             for (int i = 0; i < 8; i++) {

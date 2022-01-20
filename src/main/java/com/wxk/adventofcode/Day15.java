@@ -7,7 +7,6 @@ import java.util.Set;
 
 public class Day15 extends DayResolution {
 
-    static final int[][] DIR = { {0,1}, {1,0}, {0,-1}, {-1,0} };
     private int[][] inputArr;
     private int maxX;
     private int maxXX;
@@ -39,7 +38,7 @@ public class Day15 extends DayResolution {
             if (curPoint.y == maxX-1 && curPoint.x == maxX-1) {
                 return curPoint.cost;
             }
-            for (int[] dir : DIR)  {
+            for (int[] dir : DIRx4)  {
                 int a = curPoint.x + dir[0];
                 int b = curPoint.y + dir[1];
                 if (b >= 0 && b < maxX && a >= 0 && a < maxX) {
@@ -65,7 +64,7 @@ public class Day15 extends DayResolution {
             if (cur.y == maxXX-1 && cur.x == maxXX-1) {
                 return cur.cost;
             }
-            for (int[] dir : DIR)  {
+            for (int[] dir : DIRx4)  {
                 int a = cur.x + dir[0];
                 int b = cur.y + dir[1];
 
