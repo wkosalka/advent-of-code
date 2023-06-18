@@ -1,4 +1,4 @@
-package com.wxk.adventofcode;
+package com.wxk.adventofcode.year2021;
 
 import org.apache.commons.io.FileUtils;
 
@@ -21,7 +21,7 @@ public abstract class DayResolution {
 
     protected DayResolution(int day) {
         this.day = day;
-        this.filePath = "input_" + day;
+        this.filePath = "year2021/input_" + day;
         this.firstResult = "";
         this.secondResult = "";
     }

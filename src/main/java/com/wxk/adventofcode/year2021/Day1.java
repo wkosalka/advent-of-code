@@ -1,4 +1,4 @@
-package com.wxk.adventofcode;
+package com.wxk.adventofcode.year2021;
 
 import java.io.IOException;
 
