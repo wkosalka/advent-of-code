@@ -4,11 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class InputParser {
+import static com.wxk.adventofcode.commons.Constants.*;
 
-    public static final String WIN_DBL_EOL_DELIM = "\r\n\r\n";
-    public static final String WIN_EOL_DELIM = "\r\n";
-    public static final String COMA_DELIM = ",";
+public class InputParser {
 
     public static int[] getInputAsIntArray(String input) {
         return Arrays.stream(input.split(WIN_EOL_DELIM)).mapToInt(Integer::parseInt).toArray();

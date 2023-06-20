@@ -5,6 +5,8 @@ import com.wxk.adventofcode.commons.InputParser;
 import java.io.IOException;
 import java.util.List;
 
+import static com.wxk.adventofcode.commons.Constants.DIRx9;
+
 public class Day20 extends DayResolution {
 
     private final char[] algorithm = new char[512];

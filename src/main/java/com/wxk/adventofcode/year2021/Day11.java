@@ -4,6 +4,8 @@ import com.wxk.adventofcode.commons.InputParser;
 
 import java.io.IOException;
 
+import static com.wxk.adventofcode.commons.Constants.DIRx8;
+
 public class Day11 extends DayResolution {
     public Day11() {
         super(11);

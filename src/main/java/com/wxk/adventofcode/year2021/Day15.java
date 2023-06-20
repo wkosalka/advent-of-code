@@ -7,6 +7,8 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
+import static com.wxk.adventofcode.commons.Constants.DIRx4;
+
 public class Day15 extends DayResolution {
 
     private int[][] inputArr;

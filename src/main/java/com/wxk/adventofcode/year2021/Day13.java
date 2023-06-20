@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
-import static com.wxk.adventofcode.commons.InputParser.WIN_EOL_DELIM;
+import static com.wxk.adventofcode.commons.Constants.WIN_EOL_DELIM;
 
 public class Day13 extends DayResolution {
 

@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
+import static com.wxk.adventofcode.commons.Constants.DIRx4;
+import static com.wxk.adventofcode.commons.Constants.DIRx8;
+
 public class Day9 extends DayResolution {
 
     private int[][] inputNumbers;

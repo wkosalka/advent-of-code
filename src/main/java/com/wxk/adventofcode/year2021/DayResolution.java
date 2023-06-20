@@ -12,10 +12,6 @@ public abstract class DayResolution {
     String firstResult;
     String secondResult;
 
-    static final int[][] DIRx9 = { {-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,0}, {0,1}, {1,-1}, {1,0}, {1,1} };
-    static final int[][] DIRx8 = { {-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,1}, {1,-1}, {1,0}, {1,1} };
-    static final int[][] DIRx4 = { {0,1}, {1,0}, {0,-1}, {-1,0} };
-
     protected DayResolution(int day) {
         this.day = day;
         this.filePath = "year2021/input_" + day;

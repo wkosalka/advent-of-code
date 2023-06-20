@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.wxk.adventofcode.commons.InputParser.WIN_EOL_DELIM;
+import static com.wxk.adventofcode.commons.Constants.WIN_EOL_DELIM;
 import static com.wxk.adventofcode.commons.InputParser.getInputAsStringArrayDoubleEolDelimited;
 
 public class Day4 extends DayResolution {
