@@ -1,5 +1,6 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class Day16 extends DayResolution {
     @Override
     public void makeCalculations() throws IOException {
 
-        String input = getInputAsString().replaceAll(WIN_EOL_DELIM,"");
+        String input = InputParser.getInputAsSingleString(dayInput);
         StringBuilder binaryBuilder = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {
             String binaryPart = StringUtils.leftPad(Integer.toBinaryString(Integer.parseInt(""+input.charAt(i),16)), 4, "0");

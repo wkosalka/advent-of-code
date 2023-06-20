@@ -26,10 +26,9 @@ public class Day17 extends DayResolution {
     @Override
     public void makeCalculations() throws IOException {
 
-        String input = getInputAsString();
         List<Integer> inputList = new ArrayList<>();
 
-        Matcher m = Pattern.compile("-?\\d+").matcher(input);
+        Matcher m = Pattern.compile("-?\\d+").matcher(dayInput);
         while (m.find()) {
             inputList.add(Integer.parseInt(m.group()));
         }

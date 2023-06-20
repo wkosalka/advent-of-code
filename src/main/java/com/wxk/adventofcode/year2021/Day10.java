@@ -1,5 +1,7 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -20,7 +22,7 @@ public class Day10 extends DayResolution {
         matchingChars.put('<','>');
         matchingChars.put('{','}');
 
-        List<String> inputList = getInputAsStringList();
+        List<String> inputList = InputParser.getInputAsStringList(dayInput);
 
         long res = 0L;
         for (String line : inputList) {

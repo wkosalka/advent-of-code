@@ -1,9 +1,13 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.awt.*;
 import java.io.IOException;
 import java.util.*;
 import java.util.List;
+
+import static com.wxk.adventofcode.commons.InputParser.WIN_EOL_DELIM;
 
 public class Day13 extends DayResolution {
 
@@ -18,7 +22,7 @@ public class Day13 extends DayResolution {
 
     @Override
     public void makeCalculations() throws IOException {
-        List<String> input = getInputAsStringList();
+        List<String> input = InputParser.getInputAsStringList(dayInput);
 
         input.forEach(e -> {
             if (e.length() > 0) {

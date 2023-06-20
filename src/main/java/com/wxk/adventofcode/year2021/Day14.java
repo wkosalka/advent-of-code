@@ -1,5 +1,7 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -19,7 +21,7 @@ public class Day14 extends DayResolution {
     @Override
     public void makeCalculations() throws IOException {
 
-        inputList = getInputAsStringList();
+        inputList = InputParser.getInputAsStringList(dayInput);
         polymer = inputList.get(0);
         firstLetter = polymer.charAt(0);
         lastLetter = polymer.charAt(polymer.length()-1);

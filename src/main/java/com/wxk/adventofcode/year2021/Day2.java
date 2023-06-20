@@ -1,5 +1,7 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -31,8 +33,8 @@ public class Day2 extends DayResolution {
         aim = 0;
     }
 
-    private void parseInput(boolean useAim) throws IOException {
-        List<String> inputList = getInputAsStringList();
+    private void parseInput(boolean useAim) {
+        List<String> inputList = InputParser.getInputAsStringList(dayInput);
         for (String line : inputList) {
             String[] lineSplit = line.split(" ");
             String command = lineSplit[0];

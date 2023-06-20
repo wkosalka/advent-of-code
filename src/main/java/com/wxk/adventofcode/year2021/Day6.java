@@ -1,6 +1,8 @@
 package com.wxk.adventofcode.year2021;
 
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +18,7 @@ public class Day6 extends DayResolution {
     @Override
     public void makeCalculations() throws IOException {
 
-        String inputList = getInputAsString().replaceAll(WIN_EOL_DELIM,"");
+        String inputList = InputParser.getInputAsSingleString(dayInput);
 
         initializeFishMap(inputList);
         firstResult = String.valueOf(iterateDays(80));

@@ -1,5 +1,7 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.awt.*;
 import java.io.IOException;
 import java.util.*;
@@ -20,7 +22,7 @@ public class Day9 extends DayResolution {
 
         List<Point> listOfLowPoints = new ArrayList<>();
 
-        inputNumbers = getInputAsIntIntArray();
+        inputNumbers = InputParser.getInputAsIntIntArray(dayInput);
 
         maxX = inputNumbers.length;
         maxY = inputNumbers[0].length;

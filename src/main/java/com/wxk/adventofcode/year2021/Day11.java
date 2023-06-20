@@ -1,5 +1,7 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.io.IOException;
 
 public class Day11 extends DayResolution {
@@ -13,7 +15,7 @@ public class Day11 extends DayResolution {
     @Override
     public void makeCalculations() throws IOException {
 
-        inputArray = getInputAsIntIntArray();
+        inputArray = InputParser.getInputAsIntIntArray(dayInput);
 
         for (int x = 0; x < 100; x++) {
             boolean hasChanged = true;
@@ -24,7 +26,7 @@ public class Day11 extends DayResolution {
         }
 
         firstResult = String.valueOf(numOfFlashes);
-        inputArray = getInputAsIntIntArray();
+        inputArray = InputParser.getInputAsIntIntArray(dayInput);
 
         int allFlashStep = 0;
         boolean areAllFlashing = false;

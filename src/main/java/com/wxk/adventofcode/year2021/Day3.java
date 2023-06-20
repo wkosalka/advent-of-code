@@ -1,5 +1,7 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +15,7 @@ public class Day3 extends DayResolution {
     @Override
     public void makeCalculations() throws IOException {
 
-        List<String> inputList = getInputAsStringList();
+        List<String> inputList = InputParser.getInputAsStringList(dayInput);
 
         String gammaRate = getGammaRate(inputList);
         String epsilonRate = getEpsilonRate(inputList);
@@ -27,7 +29,7 @@ public class Day3 extends DayResolution {
 
         String o2GenRating = inputList.get(0);
 
-        inputList = getInputAsStringList();
+        inputList = InputParser.getInputAsStringList(dayInput);
 
         for (int i = 0; i < 12; i++) {
             char p01 = getLeastAtPosition(inputList,i);

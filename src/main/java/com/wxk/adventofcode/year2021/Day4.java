@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.wxk.adventofcode.commons.InputParser.WIN_EOL_DELIM;
+import static com.wxk.adventofcode.commons.InputParser.getInputAsStringArrayDoubleEolDelimited;
+
 public class Day4 extends DayResolution {
 
     public Day4() {
@@ -13,7 +16,7 @@ public class Day4 extends DayResolution {
     @Override
     public void makeCalculations() throws IOException {
 
-        String[] inputString = getInputAsString().split(WIN_DBL_EOL_DELIM);
+        String[] inputString = getInputAsStringArrayDoubleEolDelimited(dayInput);
         int[] drawnNumbers = Arrays.stream(inputString[0].split(",")).mapToInt(Integer::parseInt).toArray();
         List<String> boardsAsStringList = Arrays.stream(inputString, 1, inputString.length).collect(Collectors.toList());
         List<SingleBoard> boardsList = new ArrayList<>();

@@ -1,5 +1,7 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.awt.*;
 import java.io.IOException;
 import java.util.*;
@@ -21,7 +23,7 @@ public class Day25 extends DayResolution {
         moveMap.put('>', new Point(1,0));
         moveMap.put('v', new Point(0,1));
 
-        List<String> inputList = getInputAsStringList();
+        List<String> inputList = InputParser.getInputAsStringList(dayInput);
 
         Map<Point, Character> cucumberMap = new HashMap<>();
         maxX = inputList.get(0).length();

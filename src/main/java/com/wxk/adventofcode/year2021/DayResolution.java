@@ -4,17 +4,14 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public abstract class DayResolution {
     private final int day;
     private final String filePath;
+    protected String dayInput;
     String firstResult;
     String secondResult;
-    static final String WIN_DBL_EOL_DELIM = "\r\n\r\n";
-    static final String WIN_EOL_DELIM = "\r\n";
+
     static final int[][] DIRx9 = { {-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,0}, {0,1}, {1,-1}, {1,0}, {1,1} };
     static final int[][] DIRx8 = { {-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,1}, {1,-1}, {1,0}, {1,1} };
     static final int[][] DIRx4 = { {0,1}, {1,0}, {0,-1}, {-1,0} };
@@ -24,40 +21,17 @@ public abstract class DayResolution {
         this.filePath = "year2021/input_" + day;
         this.firstResult = "";
         this.secondResult = "";
+        readInputFile();
     }
 
-    public String getInputAsString() throws IOException {
+    private void readInputFile() {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(this.filePath).getFile());
-        return FileUtils.readFileToString(file, StandardCharsets.UTF_8);
-    }
-
-    public int[] getInputAsIntArray() throws IOException {
-        return Arrays.stream(getInputAsString().split(WIN_EOL_DELIM)).mapToInt(Integer::parseInt).toArray();
-    }
-
-    public long[] getInputAsLongArray() throws IOException {
-        return Arrays.stream(getInputAsString().split(WIN_EOL_DELIM)).mapToLong(Long::parseLong).toArray();
-    }
-
-    public int[][] getInputAsIntIntArray() throws IOException {
-        String[] rowsArray = getInputAsStringArray();
-        if (rowsArray.length > 0) {
-            int[][] cellsArray = new int[rowsArray.length][rowsArray[0].length()];
-            for (int y = 0; y < rowsArray.length; y++) {
-                cellsArray[y] = Arrays.stream(rowsArray[y].split("")).mapToInt(Integer::parseInt).toArray();
-            }
-            return cellsArray;
+        try {
+            this.dayInput = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            System.out.println("Could not read input file: " + e.getMessage());
         }
-        return new int[0][0];
-    }
-
-    public String[] getInputAsStringArray() throws IOException {
-        return Arrays.stream(getInputAsString().split(WIN_EOL_DELIM)).toArray(String[]::new);
-    }
-
-    public List<String> getInputAsStringList() throws IOException {
-        return Arrays.stream(getInputAsString().split(WIN_EOL_DELIM)).collect(Collectors.toList());
     }
 
     public void getFirstResponse() {

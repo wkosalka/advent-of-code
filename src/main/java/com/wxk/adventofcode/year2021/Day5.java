@@ -1,5 +1,7 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ public class Day5 extends DayResolution {
     @Override
     public void makeCalculations() throws IOException {
 
-        List<String> inputList = getInputAsStringList();
+        List<String> inputList = InputParser.getInputAsStringList(dayInput);
         inputList.forEach(e -> {
             String[] coors = e.split(" -> |,");
             lineList.add(new Line(Integer.parseInt(coors[0]), Integer.parseInt(coors[1]), Integer.parseInt(coors[2]), Integer.parseInt(coors[3])));

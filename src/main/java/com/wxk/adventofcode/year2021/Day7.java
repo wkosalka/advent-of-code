@@ -1,5 +1,7 @@
 package com.wxk.adventofcode.year2021;
 
+import com.wxk.adventofcode.commons.InputParser;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,8 @@ public class Day7 extends DayResolution {
     @Override
     public void makeCalculations() throws IOException {
 
-        String[] crabPositionString = getInputAsString().replaceAll(WIN_EOL_DELIM,"").split(",");
+//        String[] crabPositionString = readInputFile().replaceAll(WIN_EOL_DELIM,"").split(",");
+        String[] crabPositionString = InputParser.getInputAsStringArrayComaDelimited(dayInput);
         for (String s : crabPositionString) {
             crabPositions.add(Integer.parseInt(s));
         }
